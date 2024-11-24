@@ -230,7 +230,6 @@ public:
 
                 }
 
-
                 // the column = 0, the top right corner has been checked
                 // so will check for the remaining rows
                 else if(j == 0){
@@ -302,6 +301,7 @@ public:
 
                     }
 
+
                     // the bottom row
                     else{
 
@@ -330,13 +330,58 @@ public:
                 }
                 else if(j == 19){
 
-                    // checking for the cell (_,19)
+                    // checking for the cell (_,19) which is the last column
+
                     if (grid[i][j-1] == "L") countlive++; // cell (_,_-1)
                     if (grid[i+1][j] == "L")countlive++;  // cell (_+1,_)
                     if (grid[i-1][j] == "L")countlive++; // cell (_-1,_)
                     if (grid[i - 1][j - 1] == "L")countlive++; // cell (_-1,_-1) (diagonal from the top left)
                     if (grid[i + 1][j - 1] == "L")countlive++; // cell (_-1,_+1) (diagonal from the bottom left)
 
+                    // if the number of alive cells around it have <2 alive, then the cell dies from underpopulation
+                    if(countlive <2) new_grid[i][j] = "D";
+
+                        // if the number of alive cells equal 2 or 3 then the cell lives onto next generation
+                    else if(countlive == 2 || countlive == 3) new_grid[i][j] = "L";
+
+                        // if the cell itself is dead, and have > 3 alive cells around it, then it reproduces and becomes a live cell
+                    else if((grid[i][j] == "D") && (countlive > 3)) new_grid[i][j] = "L";
+
+                        // if the number of alive cells around it is greater than 3, it dies from overpopulation
+                    else if(countlive > 3) new_grid[i][j] = "D";
+
+                }
+                else{
+
+                    // the cell is in the middle of the grid, so can check all the 8 cells around it
+                    if (grid[i-1][j] == "L") countlive++; // above the cell
+                    if (grid[i+1][j] == "L") countlive++; // below the cell
+                    if (grid[i][j-1] == "L") countlive++; // to the left of the cell
+                    if (grid[i][j+1] == "L") countlive++; // to the right of the cell
+                    if (grid[i - 1][j - 1] == "L")countlive++; // cell (_-1,_-1) (diagonal from the top left)
+                    if (grid[i + 1][j - 1] == "L")countlive++; // cell (_-1,_+1) (diagonal from the bottom left)
+                    if (grid[i - 1][j + 1] == "L")countlive++; // cell (_-1,_-1) (diagonal from the top right)
+                    if (grid[i + 1][j + 1] == "L")countlive++; // cell (_-1,_+1) (diagonal from the bottom right)
+
+                    // checking for the cell (_,19) which is the last column
+
+                    if (grid[i][j-1] == "L") countlive++; // cell (_,_-1)
+                    if (grid[i+1][j] == "L")countlive++;  // cell (_+1,_)
+                    if (grid[i-1][j] == "L")countlive++; // cell (_-1,_)
+                    if (grid[i - 1][j - 1] == "L")countlive++; // cell (_-1,_-1) (diagonal from the top left)
+                    if (grid[i + 1][j - 1] == "L")countlive++; // cell (_-1,_+1) (diagonal from the bottom left)
+
+                    // if the number of alive cells around it have <2 alive, then the cell dies from underpopulation
+                    if(countlive <2) new_grid[i][j] = "D";
+
+                        // if the number of alive cells equal 2 or 3 then the cell lives onto next generation
+                    else if(countlive == 2 || countlive == 3) new_grid[i][j] = "L";
+
+                        // if the cell itself is dead, and have > 3 alive cells around it, then it reproduces and becomes a live cell
+                    else if((grid[i][j] == "D") && (countlive > 3)) new_grid[i][j] = "L";
+
+                        // if the number of alive cells around it is greater than 3, it dies from overpopulation
+                    else if(countlive > 3) new_grid[i][j] = "D";
 
                 }
             }
