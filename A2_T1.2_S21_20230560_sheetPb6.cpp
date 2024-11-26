@@ -61,7 +61,7 @@ public:
     }
 
 
-    // display for the user the cell numbers so he can choose which cells he wants to initialize to alive
+    // display for the user the cell numbers, so he can choose which cells he wants to initialize to alive
     void displaygridnumbers()const{
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
@@ -76,7 +76,7 @@ public:
     void initialize(){
 
         // asking the user to input the cell numbers he wants to be alive (or -1 to stop)
-        cout << "\nPlease enter the cell numbers you want to initialize to alive (or -1 if you are done)\n";
+        cout << "\n--- Please enter the cell index numbers you want to initialize to alive (or -1 if you are done) ---\n";
         int celln;
 
         while(true) {
@@ -84,13 +84,13 @@ public:
             cin >> celln;
             if(celln == -1) break;
 
-            // validation check to make sure index input is valid and within the range
+            // validation check to make sure index input is a valid input and within the range
             if (cin.fail() || celln < 0 || celln > 399) {
                 // Clear n input
                 cin.clear();
                 // Ignore n input
                 cin.ignore(1000, '\n');
-                cout << "\nInvalid input!! Please enter a suitable cell number\n";
+                cout << "\nInvalid input!! Please enter a suitable cell number you want to initialize to alive (or -1 if you are done)\n";
                 continue;
             }
 
@@ -137,7 +137,6 @@ public:
         //      we check the bottom left corner of the grid (19,0)
         //      or we check the column to the left, we check for the 5 cells around the cell
         // else we check for the cell (_,19) which is the last column
-
         // else we will check for the remaining rows
         //      the cell is in the middle of the grid, so can check all the 8 cells around it
 
@@ -145,7 +144,7 @@ public:
         for (int x = -1; x <= 1; x++) {
             for (int y = -1; y <= 1; y++) {
 
-                // Skip the current cell itself
+                // Skip the cell itself
                 if (x == 0 && y == 0) continue;
 
                 // calculating the neighbor coordinates
@@ -300,7 +299,7 @@ int main() {
             u.initialize();
 
             // display the original grid after initialization
-            cout << "\nDisplaying the grid after initializing the alive cells places\n\n";
+            cout << "\n** Displaying the grid after initializing the alive cells places **\n\n";
             u.display(u.getoriginalgrid());
 
             // asking the user how many times he wants to run the program
@@ -310,7 +309,7 @@ int main() {
             for(int i=0;i<times;i++) {
                 u.run();
                 // after each run, will display the next generation
-                cout << "\nAfter generation " << i+1 << endl;
+                cout << "\nAfter generation " << i+1 << "\n\n";
                 u.display(u.getgrid());
             }
             continue;
