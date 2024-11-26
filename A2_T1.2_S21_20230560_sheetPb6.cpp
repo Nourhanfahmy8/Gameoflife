@@ -2,7 +2,7 @@
 // Author: Nourhan Mohammed Ahmed Fahmy
 // Section: S21
 // ID: 20230560
-// Date: __ Nov 2024
+// Date: 26 Nov 2024
 // Detailed explanation of the file and how program works:
 // Problem No. 6 : Game of life
 //                 The universe of this game consists of a grid of square cells that could have one of the two states
