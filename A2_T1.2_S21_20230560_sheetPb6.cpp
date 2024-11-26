@@ -122,6 +122,7 @@ public:
     // function to count the alive neighbours around each cell
     int count_neighbors(int i,int j) {
 
+
         // initializing the count to 0 for each cell
         int countlive = 0;
 
