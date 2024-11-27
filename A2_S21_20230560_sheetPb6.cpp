@@ -324,8 +324,7 @@ int main() {
                 // after each run, will display the next generation
                 cout << "\nAfter generation " << i+1 << "\n\n";
                 u.displaygeneration(u.getgrid());
-                system("cls");
-                this_thread::sleep_for(chrono::milliseconds(200));
+
             }
             continue;
         }
