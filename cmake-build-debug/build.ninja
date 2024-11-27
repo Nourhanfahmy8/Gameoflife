@@ -49,8 +49,8 @@ cmake_ninja_workdir = C$:/Users/nourh/CLionProjects/untitled16/cmake-build-debug
 
 build cmake_object_order_depends_target_untitled16: phony || CMakeFiles/untitled16.dir
 
-build CMakeFiles/untitled16.dir/A2_T1.2_S21_20230560_sheetPb6.cpp.obj: CXX_COMPILER__untitled16_unscanned_Debug C$:/Users/nourh/CLionProjects/untitled16/A2_T1.2_S21_20230560_sheetPb6.cpp || cmake_object_order_depends_target_untitled16
-  DEP_FILE = CMakeFiles\untitled16.dir\A2_T1.2_S21_20230560_sheetPb6.cpp.obj.d
+build CMakeFiles/untitled16.dir/A2_S21_20230560_sheetPb6.cpp.obj: CXX_COMPILER__untitled16_unscanned_Debug C$:/Users/nourh/CLionProjects/untitled16/A2_S21_20230560_sheetPb6.cpp || cmake_object_order_depends_target_untitled16
+  DEP_FILE = CMakeFiles\untitled16.dir\A2_S21_20230560_sheetPb6.cpp.obj.d
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\untitled16.dir
   OBJECT_FILE_DIR = CMakeFiles\untitled16.dir
@@ -63,7 +63,7 @@ build CMakeFiles/untitled16.dir/A2_T1.2_S21_20230560_sheetPb6.cpp.obj: CXX_COMPI
 #############################################
 # Link the executable untitled16.exe
 
-build untitled16.exe: CXX_EXECUTABLE_LINKER__untitled16_Debug CMakeFiles/untitled16.dir/A2_T1.2_S21_20230560_sheetPb6.cpp.obj
+build untitled16.exe: CXX_EXECUTABLE_LINKER__untitled16_Debug CMakeFiles/untitled16.dir/A2_S21_20230560_sheetPb6.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\untitled16.dir

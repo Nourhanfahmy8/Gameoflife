@@ -1,4 +1,4 @@
-// File: A2_T1.2_S21_20230560_sheetPb6.cpp
+// File: A2_S21_20230560_sheetPb6.cpp
 // Author: Nourhan Mohammed Ahmed Fahmy
 // Section: S21
 // ID: 20230560
@@ -15,8 +15,8 @@
 #include <string>
 #include <iomanip>
 #include <algorithm>
-#include <windows.h>
-#include <conio.h>
+#include <thread>
+#include <chrono>
 
 using namespace std;
 
@@ -225,17 +225,30 @@ public:
         return original_grid;
     }
 
-    // function to display the grid, and it depends on the grid passed to the function
-    // as we can either pass the original initialized grid, or print the grid after each generation
-    void display(const vector<vector<string>>& input_grid){
+    // function to display the grid after each generation
+    void displaygeneration(const vector<vector<string>>& input_grid){
 
         for (const auto& row : input_grid) {
             for (const auto& cell : row) {
-                cout << setw(5) << setfill(' ') << cell;
+                // checking the cell of each grid, if it is alive will output '*' else will output empty space
+                if(cell == "L") cout << setw(5) << setfill(' ') << "*";
+                else cout << setw(5) << setfill(' ') << " ";
             }
             cout << endl;
         }
 
+    }
+
+
+    // function to display the grid after initializing the alive cells
+    void display(const vector<vector<string>>& input_grid) {
+
+        for (const auto &row: input_grid) {
+            for (const auto &cell: row) {
+                cout << setw(5) << setfill(' ') << cell;
+            }
+            cout << endl;
+        }
     }
 
     // function to run the game according to the number of times the user specified
@@ -310,7 +323,9 @@ int main() {
                 u.run();
                 // after each run, will display the next generation
                 cout << "\nAfter generation " << i+1 << "\n\n";
-                u.display(u.getgrid());
+                u.displaygeneration(u.getgrid());
+                system("cls");
+                this_thread::sleep_for(chrono::milliseconds(200));
             }
             continue;
         }
